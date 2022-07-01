@@ -1,8 +1,9 @@
 import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
-import bg from "../images/frontpagebg.png"
-import logo from "../images/airbnb.png"
+import bg from "../images/frontpagebg.png";
+import logo from "../images/airbnb.png";
+import { ConnectButton } from "web3uikit";
 
 const Home = () => {
 
@@ -21,9 +22,31 @@ const Home = () => {
           <div>Online Experiences</div>
         </div>
         <div className="lrContainers">
-
+        <ConnectButton />
       </div>
     </div>
+    <div className="tabContent">
+        <div className="searchFields">
+        <div className="inputs">
+          Location
+        </div>
+          <div className="v1"/>
+          <div className="inputs">
+            Check In
+        </div>
+          <div className="v1"/>
+          <div className="inputs">
+          Check Out
+        </div>
+          <div className="v1"/>
+          <div className="inputs">
+          Guets
+          
+          
+          </div>
+        </div>
+      </div>
+
 
     </>
   );
