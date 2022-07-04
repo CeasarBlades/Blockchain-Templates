@@ -41,8 +41,6 @@ const Home = () => {
           <div className="v1"/>
           <div className="inputs">
           Guets
-          
-          
           </div>
         </div>
       </div>
