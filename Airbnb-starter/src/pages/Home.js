@@ -3,9 +3,14 @@ import "./Home.css";
 import { Link } from "react-router-dom";
 import bg from "../images/frontpagebg.png";
 import logo from "../images/airbnb.png";
-import { ConnectButton, Select, DatePicker, Input } from "web3uikit";
+import { ConnectButton, Select, DatePicker, Input, Icon, Button } from "web3uikit";
+import { useState } from "react";
 
 const Home = () => {
+  const [checkIn, setCheckIn] = useState(new Date());
+  const [checkOut, setCheckOut] = useState(new Date());
+  const [destination, setDestination] = useState("New York");
+  const [guests, setGuests] = useState(2);
 
   return (
     <>
@@ -31,7 +36,7 @@ const Home = () => {
           Location
           <Select
               defaultOptionIndex={0}
-              onChange={(data) => console.log(data.label)}
+              onChange={(data) => setDestination(data.label)}
               options={[
                 {
                   id: "ny",
@@ -58,7 +63,7 @@ const Home = () => {
             Check In
             <DatePicker
               id="CheckIn"
-              onChange={(event) =>console.log(event.date)}
+              onChange={(event) =>setCheckIn(event.date)}
               />
         </div>
           <div className="v1"/>
@@ -66,7 +71,7 @@ const Home = () => {
           Check Out
           <DatePicker
               id="CheckOut"
-              onChange={(event) =>console.log(event.date)}
+              onChange={(event) =>setCheckOut(event.date)}
               />
         </div>
           <div className="v1"/>
@@ -76,13 +81,32 @@ const Home = () => {
               value={2}
               name="AddGuests"
               type="number"
-              onChange={(event) => console.log(Number(event.target.value))}
+              onChange={(event) => setGuests(Number(event.target.value))}
             />
           </div>
+          <Link to={"/rentals"} state={{
+            destination: destination,
+            checkIn: checkIn,
+            checkOut: checkOut,
+            guests: guests
+          }}>
+          <div className="searchButton">
+          <Icon fill="#ffffff" size={24} svg="search" />
+          </div>
+          </Link>
         </div>
       </div>
-
-
+      <div className="randomLocation">
+        <div className="title">Feel Adventurous</div>
+        <div className="text">
+          Let us decide and discover new places to stay, live, work or just
+          relax.
+        </div>
+        <Button
+          text="Explore A Location"
+          onClick={() => console.log(checkOut)}
+        />
+        </div>
     </>
   );
 };
