@@ -76,7 +76,7 @@ const Home = () => {
               value={2}
               name="AddGuests"
               type="number"
-              onChange={(event) => setGuests(Number(event.target.value))}
+              onChange={(event) => console.log(Number(event.target.value))}
             />
           </div>
         </div>
