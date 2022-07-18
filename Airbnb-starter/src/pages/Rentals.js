@@ -2,18 +2,26 @@ import React from "react";
 import "./Rentals.css";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import logo from "../images/airbnbRed.png";
+import { ConnectButton } from "web3uikit";
 
 const Rentals = () => {
   const { state: searchFilters } = useLocation();
 
   return (
     <>
-     <Link to="/"> Home </Link>
-     {searchFilters &&
-     <div onClick={()=>console.log(searchFilters) }>
-     hi
+      <div className="topBanner">
+        <div>
+          <Link to="/">
+          <img className="logo" src={logo} alt="logo"></img>
+          </Link>
+        </div>
+        <div className="searchReminder"></div>
+        <div className="lrContainers">
+        <ConnectButton />
       </div>
-     }
+    </div>
+    
     </>
   );
 };
