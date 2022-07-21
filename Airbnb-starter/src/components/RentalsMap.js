@@ -3,7 +3,7 @@ import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 import { useState, useEffect } from "react";
 
 
-function RentalsMap({locations, google}) {
+function RentalsMap({locations, google, setHighLight }) {
 
   const [center, setCenter] = useState();
   useEffect (() => {
@@ -32,9 +32,9 @@ function RentalsMap({locations, google}) {
           zoom={13}
           disableDefaultUI={true}
         >
-          {/* {locations.map((coords, i) => (
+          {locations.map((coords, i) => (
             <Marker position={coords} onClick={() => setHighLight(i)} />
-          ))} */}
+          ))}
         </Map>
       )}
     </>
